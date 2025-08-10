@@ -1,0 +1,16 @@
+# -----------------------------------------------------------------------------
+# ContextPacket – ingestion configuration
+# -----------------------------------------------------------------------------
+# Copy this file to, say, `config.toml`, tweak the values, then run:
+#   python ingest.py --db index.db --corpus ./docs --config config.toml
+# -----------------------------------------------------------------------------
+
+[corpus]
+# File extensions (lower‑case, without the leading dot) that the ingestor will
+# treat as *text‐like*.  Everything else is ignored.
+include_extensions = [
+  "txt", "md", "markdown", "html", "htm", "pdf",
+  "py", "c", "cpp", "h", "hpp", "rs", "swift",
+]
+# Recurse into sub‑directories?  Dot‑dirs are always skipped regardless.
+recursive = true

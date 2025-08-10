@@ -1,7 +1,59 @@
 [project]
 name = "contextpacket"
 version = "0.1.0"
-description = "Add your description here"
+description = "Offline summarisation pipeline producing multi-budget context packets"
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+  "langgraph>=0.0.9",
+  "pydantic>=2.7",
+  "beautifulsoup4>=4.12",
+  "unstructured[all-docs]>=0.11",
+  "pymupdf>=1.24",
+  "rich>=13.7",
+  "tiktoken>=0.6",
+  "sentence-transformers>=0.6",
+  "sqlite-vec>=0.1.6",
+  "langchain-core>=0.3.67",
+  "bs4>=0.0.2",
+  "numpy>=2.3.1",
+  "toml>=0.10.2",
+  "setuptools>=68",
+  "pdfminer.six>=20231228",
+  "langchain-text-splitters>=0.1.0",
+  "langchain-experimental>=0.3.5",
+]
+
+[project.optional-dependencies]
+dev = [
+  "ruff>=0.4",
+  "mypy>=1.10",
+  "pytest>=8.2",
+  "pytest-asyncio>=0.23",
+  "hypothesis>=6.100",
+  "pre-commit>=3.7",
+  "types-beautifulsoup4",
+]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+plugins = ["pydantic.mypy"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.setuptools]
+packages = ["context_packet"]
