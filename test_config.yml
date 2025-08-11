@@ -1,0 +1,24 @@
+# ContextPacket Test Configuration
+chunk_size: 512
+chunk_overlap: 256
+large_limit: 32000
+medium_limit: 16000
+small_limit: 8000
+score_threshold: null
+model_path: "./models/cross-encoder"
+include_extensions:
+  - "txt"
+  - "md" 
+  - "markdown"
+  - "html"
+  - "htm"
+  - "pdf"
+  - "py"
+  - "c"
+  - "cpp"
+  - "h"
+  - "hpp"
+  - "rs"
+  - "swift"
+recursive: true
+output_dir: "."
