@@ -1,11 +1,12 @@
-# ContextPacket Test Configuration
-chunk_size: 512
-chunk_overlap: 256
+# ContextPacket Small Test Configuration  
+chunk_size: 128
+chunk_overlap: 64
 large_limit: 32000
 medium_limit: 16000
 small_limit: 8000
 score_threshold: null
 model_path: "mixedbread-ai/mxbai-rerank-base-v2"
+batch_size: 8
 include_extensions:
   - "txt"
   - "md" 

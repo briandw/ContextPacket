@@ -1,0 +1,13 @@
+# ContextPacket Annotation Configuration - 384-token chunks from 512-token windows
+chunk_size: 512
+chunk_overlap: 128
+large_limit: 32000
+medium_limit: 16000
+small_limit: 8000
+score_threshold: null
+model_path: "mixedbread-ai/mxbai-rerank-base-v2"
+batch_size: 8
+include_extensions:
+  - "pdf"
+recursive: true
+output_dir: "annotation_tool"

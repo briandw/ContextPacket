@@ -77,6 +77,7 @@ _Last updated: 2025-08-10_
    - Load model from `model_path` or HF hub.
    - Batch score `(query, chunk_text)` pairs.
    - Return score floats (0–1).
+   - Use mxbai v2 (see the doc mxbai.md)
 2. **Tests**
    - Mock model → fixed scores.
    - Ensure batch order preserved.

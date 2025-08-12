@@ -9,7 +9,7 @@ from .chunker import Chunk
 def write_chunks_jsonl(chunks: list[Chunk], output_path: str | Path) -> None:
     """Write chunks to JSONL file."""
     output_path = Path(output_path)
-    
+
     with open(output_path, 'w', encoding='utf-8') as f:
         for chunk in chunks:
             chunk_data = {
@@ -21,7 +21,7 @@ def write_chunks_jsonl(chunks: list[Chunk], output_path: str | Path) -> None:
                 'citation': chunk.citation
             }
             f.write(json.dumps(chunk_data) + '\n')
-    
+
     print(f"Wrote {len(chunks)} chunks to {output_path}")
 
 
@@ -29,7 +29,7 @@ def read_chunks_jsonl(input_path: str | Path) -> list[Chunk]:
     """Read chunks from JSONL file."""
     input_path = Path(input_path)
     chunks = []
-    
+
     with open(input_path, encoding='utf-8') as f:
         for line in f:
             if line.strip():
@@ -45,7 +45,7 @@ def read_chunks_jsonl(input_path: str | Path) -> list[Chunk]:
                     end_offset=0
                 )
                 chunks.append(chunk)
-    
+
     return chunks
 
 
@@ -57,7 +57,7 @@ def write_context_json(
 ) -> None:
     """Write final context JSON file."""
     output_path = Path(output_path)
-    
+
     context_data = {
         'query': query,
         'chunks': [
@@ -73,9 +73,9 @@ def write_context_json(
         ],
         'limits': limits
     }
-    
+
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(context_data, f, indent=2, ensure_ascii=False)
-    
+
     total_tokens = sum(chunk.tokens for chunk in chunks)
     print(f"Wrote context with {len(chunks)} chunks ({total_tokens} tokens) to {output_path}")
